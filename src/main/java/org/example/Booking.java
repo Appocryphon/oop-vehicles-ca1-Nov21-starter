@@ -1,6 +1,8 @@
 package org.example;
 
 import java.time.LocalDateTime;
+import java.io.IOException;
+import java.util.*;
 
 class Booking
 {
@@ -11,8 +13,9 @@ class Booking
     private LocationGPS startLocation;
     private LocationGPS endLocation;
 
-    private double cost;  //Calculated at booking time
+    private double cost;
 
     //TODO - see specification
+
 
 }

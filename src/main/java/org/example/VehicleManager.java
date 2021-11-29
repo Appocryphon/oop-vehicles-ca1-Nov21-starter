@@ -50,6 +50,15 @@ public class VehicleManager {
                             mileage, latitude, longitude,
                             loadSpace));
                 }
+                else if (type.equalsIgnoreCase("Car") || type.equalsIgnoreCase("4x4")) {
+                    // construct a Car object and add it to the passenger list
+                    vehicleList.add(new Car(id, type, make, model, milesPerKwH,
+                            registration, costPerMile,
+                            year, month, day,
+                            mileage, latitude, longitude,loadSpace));
+
+                }
+
             }
             sc.close();
 
@@ -70,6 +79,21 @@ public class VehicleManager {
 
 
         return null;
+    }
+
+    public ArrayList<Vehicle> findVehiclesByMake(String make)
+    {
+
+        ArrayList<Vehicle> vehiclesMatching = new ArrayList<>();
+        for(Vehicle m : vehicleList)
+        {
+            if  (m.getMake().equalsIgnoreCase(make))
+            {
+               vehiclesMatching.add(m);
+
+            }
+        }
+        return vehiclesMatching;
     }
 
     //TODO add more functionality as per spec.
