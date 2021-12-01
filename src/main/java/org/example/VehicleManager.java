@@ -39,11 +39,14 @@ public class VehicleManager {
                 int mileage = sc.nextInt();
                 double latitude = sc.nextDouble();  // Depot GPS location
                 double longitude = sc.nextDouble();
-                int loadSpace = sc.nextInt();
+
+
 
                 if (type.equalsIgnoreCase("Van") ||
+
                         type.equalsIgnoreCase("Truck")) {
                     // construct a Van object and add it to the passenger list
+                    double loadSpace = sc.nextDouble();
                     vehicleList.add(new Van(id, type, make, model, milesPerKwH,
                             registration, costPerMile,
                             year, month, day,
@@ -52,10 +55,12 @@ public class VehicleManager {
                 }
                 else if (type.equalsIgnoreCase("Car") || type.equalsIgnoreCase("4x4")) {
                     // construct a Car object and add it to the passenger list
+                    int seats = sc.nextInt();
+
                     vehicleList.add(new Car(id, type, make, model, milesPerKwH,
                             registration, costPerMile,
                             year, month, day,
-                            mileage, latitude, longitude,loadSpace));
+                            mileage, latitude, longitude,seats));
 
                 }
 
@@ -95,6 +100,47 @@ public class VehicleManager {
         }
         return vehiclesMatching;
     }
+
+    public Vehicle findVehicleByType(String Type)
+    {
+        for(Vehicle t : vehicleList)
+        {
+            if (t.getType().equals(Type))
+            {
+                return t;
+            }
+        }
+        return null;
+    }
+
+    public Vehicle findVehicleBySeats(int seats)
+    {
+        for(Vehicle s : vehicleList)
+        {
+            if (s instanceof Car) {
+                if (((Car) s).getSeats() == seats) {
+                    System.out.println("Details of vehicles with " + seats + " seats:" + s);
+                }
+            }
+        }
+        return null;
+    }
+
+    public Object findVehiclebyId(int vehicleId) {
+    }
+
+    public void displayVehiclesbyType(String type) {
+    }
+
+    public void displayVehiclesbySeats(int seats) {
+    }
+
+    public void displayVehiclesbyMake(String make) {
+    }
+
+    public void sortbyVehicleReg() {
+    }
+
 
     //TODO add more functionality as per spec.
 

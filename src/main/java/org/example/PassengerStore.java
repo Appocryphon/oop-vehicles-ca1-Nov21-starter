@@ -66,6 +66,11 @@ public class PassengerStore {
          }
     }
 
+    //findPassengerByID
+
+
+
+
     // TODO - see functional spec for details of code to add
 
     public void add(String name, String email, String phone,
@@ -74,4 +79,34 @@ public class PassengerStore {
     }
 
 
+    public Passenger findpassengerbyID(int id)
+    {
+        for (Passenger p : passengerList)
+        {
+            if (p.getId() == id)
+            {
+                return p;
+            }
+        }
+        return null;
+    }
+
+
+
+
+
+    public void findPassengerByName(String name) {
+    }
+
+    public void addPassenger(String input_name, String email, String phonenumber, double latitude, double longtitude) {
+    }
+
+    public void deletePassenger(String name, String email) {
+    }
+
+    public int findPassengerIdByName(String name) {
+    }
+
+    public void SortPassengersbyName() {
+    }
 } // end class
