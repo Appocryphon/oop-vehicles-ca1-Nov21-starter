@@ -39,7 +39,8 @@ public class VehicleManager {
                 int mileage = sc.nextInt();
                 double latitude = sc.nextDouble();  // Depot GPS location
                 double longitude = sc.nextDouble();
-                int loadSpace = sc.nextInt();
+                double loadSpace = sc.nextDouble();
+                int seats = sc.nextInt();
 
                 if (type.equalsIgnoreCase("Van") ||
                         type.equalsIgnoreCase("Truck")) {
@@ -52,10 +53,11 @@ public class VehicleManager {
                 }
                 else if (type.equalsIgnoreCase("Car") || type.equalsIgnoreCase("4x4")) {
                     // construct a Car object and add it to the passenger list
+
                     vehicleList.add(new Car(id, type, make, model, milesPerKwH,
                             registration, costPerMile,
                             year, month, day,
-                            mileage, latitude, longitude,loadSpace));
+                            mileage, latitude, longitude,seats));
 
                 }
 
@@ -94,6 +96,31 @@ public class VehicleManager {
             }
         }
         return vehiclesMatching;
+    }
+
+    public Vehicle findVehicleByType(String Type)
+    {
+        for(Vehicle t : vehicleList)
+        {
+            if (t.getType().equals(Type))
+            {
+                return t;
+            }
+        }
+        return null;
+    }
+
+    public Vehicle findVehicleBySeats(int seats)
+    {
+        for(Vehicle s : vehicleList)
+        {
+            if (s instanceof Car) {
+                if (((Car) s).getSeats() == seats) {
+                    System.out.println("Details of vehicles with " + seats + " seats:" + s);
+                }
+            }
+        }
+        return null;
     }
 
     //TODO add more functionality as per spec.
